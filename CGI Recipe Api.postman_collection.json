@@ -1,0 +1,609 @@
+{
+	"info": {
+		"_postman_id": "347cc606-7b77-4458-8e1f-9be1a4b1d3eb",
+		"name": "CGI Recipe Api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json",
+		"_exporter_id": "9729250"
+	},
+	"item": [
+		{
+			"name": "searchByIngredients-single",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code is 200\", function () {",
+							"  pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Title is a non-empty string\", function () {",
+							"    const responseData = pm.response.json();",
+							"    ",
+							"    pm.expect(responseData).to.be.an('object');",
+							"    pm.expect(responseData.recipes).to.exist.and.to.be.an('array');",
+							"    ",
+							"    responseData.recipes.forEach(function(recipe) {",
+							"        pm.expect(recipe.title).to.exist.and.to.be.a('string').and.to.have.lengthOf.at.least(1, \"Title should not be empty\");",
+							"    });",
+							"});",
+							"",
+							"",
+							"pm.test(\"Href is a valid URL format\", function () {",
+							"    const responseData = pm.response.json();",
+							"",
+							"    pm.expect(responseData).to.be.an('object');",
+							"    pm.expect(responseData.recipes).to.be.an('array');",
+							"",
+							"    responseData.recipes.forEach(function(recipe) {",
+							"        pm.expect(recipe.href).to.match(/^https?:\\/\\/\\w+(\\.\\w+)*(:[0-9]+)?(\\/.*)?$/);",
+							"    });",
+							"});",
+							"",
+							"",
+							"pm.test(\"Ingredients is an array with at least one element\", function () {",
+							"  const responseData = pm.response.json();",
+							"  ",
+							"  pm.expect(responseData.recipes).to.be.an('array');",
+							"  responseData.recipes.forEach(function(recipe) {",
+							"    pm.expect(recipe.ingredients).to.be.an('array').and.to.have.lengthOf.at.least(1);",
+							"  });",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n   \"mushrooms\"\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/recipes/searchByIngredients/"
+			},
+			"response": []
+		},
+		{
+			"name": "searchByIngredients-multiple",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code is 200\", function () {",
+							"  pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Title is a non-empty string\", function () {",
+							"    const responseData = pm.response.json();",
+							"    ",
+							"    pm.expect(responseData).to.be.an('object');",
+							"    pm.expect(responseData.recipes).to.exist.and.to.be.an('array');",
+							"    ",
+							"    responseData.recipes.forEach(function(recipe) {",
+							"        pm.expect(recipe.title).to.exist.and.to.be.a('string').and.to.have.lengthOf.at.least(1, \"Title should not be empty\");",
+							"    });",
+							"});",
+							"",
+							"",
+							"pm.test(\"Href is a valid URL format\", function () {",
+							"    const responseData = pm.response.json();",
+							"",
+							"    pm.expect(responseData).to.be.an('object');",
+							"    pm.expect(responseData.recipes).to.be.an('array');",
+							"",
+							"    responseData.recipes.forEach(function(recipe) {",
+							"        pm.expect(recipe.href).to.match(/^https?:\\/\\/\\w+(\\.\\w+)*(:[0-9]+)?(\\/.*)?$/);",
+							"    });",
+							"});",
+							"",
+							"",
+							"pm.test(\"Ingredients is an array with at least one element\", function () {",
+							"  const responseData = pm.response.json();",
+							"  ",
+							"  pm.expect(responseData.recipes).to.be.an('array');",
+							"  responseData.recipes.forEach(function(recipe) {",
+							"    pm.expect(recipe.ingredients).to.be.an('array').and.to.have.lengthOf.at.least(1);",
+							"  });",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n   \"mushrooms\",\r\n   \"salt\",\r\n   \"onion\"\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/recipes/searchByIngredients/"
+			},
+			"response": []
+		},
+		{
+			"name": "searchByIngredients-mix",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code is 200\", function () {",
+							"  pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Title is a non-empty string\", function () {",
+							"    const responseData = pm.response.json();",
+							"    ",
+							"    pm.expect(responseData).to.be.an('object');",
+							"    pm.expect(responseData.recipes).to.exist.and.to.be.an('array');",
+							"    ",
+							"    responseData.recipes.forEach(function(recipe) {",
+							"        pm.expect(recipe.title).to.exist.and.to.be.a('string').and.to.have.lengthOf.at.least(1, \"Title should not be empty\");",
+							"    });",
+							"});",
+							"",
+							"",
+							"pm.test(\"Href is a valid URL format\", function () {",
+							"    const responseData = pm.response.json();",
+							"",
+							"    pm.expect(responseData).to.be.an('object');",
+							"    pm.expect(responseData.recipes).to.be.an('array');",
+							"",
+							"    responseData.recipes.forEach(function(recipe) {",
+							"        pm.expect(recipe.href).to.match(/^https?:\\/\\/\\w+(\\.\\w+)*(:[0-9]+)?(\\/.*)?$/);",
+							"    });",
+							"});",
+							"",
+							"",
+							"pm.test(\"Ingredients is an array with at least one element\", function () {",
+							"  const responseData = pm.response.json();",
+							"  ",
+							"  pm.expect(responseData.recipes).to.be.an('array');",
+							"  responseData.recipes.forEach(function(recipe) {",
+							"    pm.expect(recipe.ingredients).to.be.an('array').and.to.have.lengthOf.at.least(1);",
+							"  });",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n   \"salt\",\r\n   \"broccoli\"\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/recipes/searchByIngredients/"
+			},
+			"response": []
+		},
+		{
+			"name": "searchByIngredients-notfound",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code is 200\", function () {",
+							"  pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Title is a non-empty string\", function () {",
+							"    const responseData = pm.response.json();",
+							"    ",
+							"    pm.expect(responseData).to.be.an('object');",
+							"    pm.expect(responseData.recipes).to.exist.and.to.be.an('array');",
+							"    ",
+							"    responseData.recipes.forEach(function(recipe) {",
+							"        pm.expect(recipe.title).to.exist.and.to.be.a('string').and.to.have.lengthOf.at.least(1, \"Title should not be empty\");",
+							"    });",
+							"});",
+							"",
+							"",
+							"pm.test(\"Href is a valid URL format\", function () {",
+							"    const responseData = pm.response.json();",
+							"",
+							"    pm.expect(responseData).to.be.an('object');",
+							"    pm.expect(responseData.recipes).to.be.an('array');",
+							"",
+							"    responseData.recipes.forEach(function(recipe) {",
+							"        pm.expect(recipe.href).to.match(/^https?:\\/\\/\\w+(\\.\\w+)*(:[0-9]+)?(\\/.*)?$/);",
+							"    });",
+							"});",
+							"",
+							"",
+							"pm.test(\"Ingredients is an array with at least one element\", function () {",
+							"  const responseData = pm.response.json();",
+							"  ",
+							"  pm.expect(responseData.recipes).to.be.an('array');",
+							"  responseData.recipes.forEach(function(recipe) {",
+							"    pm.expect(recipe.ingredients).to.be.an('array').and.to.have.lengthOf.at.least(1);",
+							"  });",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\r\n   \"broccoli\"\r\n]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/recipes/searchByIngredients/"
+			},
+			"response": []
+		},
+		{
+			"name": "getAllRecipe",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code is 200\", function () {",
+							"    pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Title is a non-empty string\", function () {",
+							"  const responseData = pm.response.json();",
+							"  ",
+							"  pm.expect(responseData.recipes).to.exist.and.to.be.an('array');",
+							"",
+							"  responseData.recipes.forEach(function(recipe) {",
+							"    pm.expect(recipe.title).to.exist.and.to.be.a('string').and.to.have.lengthOf.at.least(1);",
+							"  });",
+							"});",
+							"",
+							"",
+							"pm.test(\"Href is a valid URL\", function () {",
+							"    const responseData = pm.response.json();",
+							"    ",
+							"    pm.expect(responseData).to.be.an('object');",
+							"    pm.expect(responseData.recipes).to.exist.and.to.be.an('array');",
+							"    ",
+							"    responseData.recipes.forEach(function(recipe) {",
+							"        pm.expect(recipe).to.be.an('object');",
+							"        pm.expect(recipe.href).to.exist.and.to.match(/^http[s]?:\\/\\/.+$/);",
+							"    });",
+							"});",
+							"",
+							"",
+							"pm.test(\"Ingredients is an array and is not empty\", function () {",
+							"  const responseData = pm.response.json();",
+							"  ",
+							"  pm.expect(responseData.recipes).to.exist.and.to.be.an('array');",
+							"  ",
+							"  responseData.recipes.forEach(function(recipe) {",
+							"    pm.expect(recipe.ingredients).to.exist.and.to.be.an('array').and.to.have.lengthOf.at.least(1, \"Ingredients should not be empty\");",
+							"  });",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": "http://localhost:8080/api/recipes/searchAll/"
+			},
+			"response": []
+		},
+		{
+			"name": "analyseErrorLogs",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code is 200\", function () {",
+							"  pm.expect(pm.response.code).to.equal(200);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Response has the required fields\", function () {",
+							"    const responseData = pm.response.json();",
+							"",
+							"    pm.expect(responseData).to.be.an('object');",
+							"    pm.expect(responseData.logDetails).to.exist.and.to.be.an('array');",
+							"",
+							"    responseData.logDetails.forEach(function (log) {",
+							"        pm.expect(log.logType).to.exist.and.to.be.a('string');",
+							"        pm.expect(log.messageDescription).to.exist.and.to.be.a('string');",
+							"        pm.expect(log.messageOccurrenceCount).to.exist.and.to.be.a('number');",
+							"    });",
+							"});",
+							"",
+							"",
+							"pm.test(\"logType is a non-empty string\", function () {",
+							"    const responseData = pm.response.json();",
+							"    ",
+							"    pm.expect(responseData.logDetails).to.be.an('array');",
+							"    responseData.logDetails.forEach(function(logDetail) {",
+							"        pm.expect(logDetail.logType).to.be.a('string').and.to.have.lengthOf.at.least(1);",
+							"    });",
+							"});",
+							"",
+							"",
+							"pm.test(\"messageDescription is a non-empty string\", function () {",
+							"    const responseData = pm.response.json();",
+							"",
+							"    pm.expect(responseData.logDetails).to.be.an('array').and.to.have.lengthOf.at.least(1, \"Array should not be empty\");",
+							"",
+							"    responseData.logDetails.forEach(function(log) {",
+							"        pm.expect(log.messageDescription).to.be.a('string').and.to.have.lengthOf.at.least(1, \"Value should not be empty\");",
+							"    });",
+							"});",
+							"",
+							"",
+							"pm.test(\"messageOccurrenceCount is a non-negative integer\", function () {",
+							"  const responseData = pm.response.json();",
+							"  ",
+							"  pm.expect(responseData).to.be.an('object');",
+							"  pm.expect(responseData.logDetails).to.exist.and.to.be.an('array');",
+							"",
+							"  responseData.logDetails.forEach(function(logDetail) {",
+							"    pm.expect(logDetail.messageOccurrenceCount).to.exist.and.to.be.a('number');",
+							"    pm.expect(logDetail.messageOccurrenceCount).to.be.at.least(0);",
+							"  });",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "[\"onions\"]",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/logAnalyser/findLogs/ERROR"
+			},
+			"response": []
+		},
+		{
+			"name": "analyseDebugLogs",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code is 200\", function () {",
+							"  pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Content-Type header is 'application/json'\", function () {",
+							"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.equal(\"application/json\");",
+							"});",
+							"",
+							"",
+							"pm.test(\"Validate the logDetails array\", function () {",
+							"    const responseData = pm.response.json();",
+							"    ",
+							"    pm.expect(responseData.logDetails).to.exist;",
+							"    pm.expect(responseData.logDetails).to.be.an('array');",
+							"});",
+							"",
+							"",
+							"pm.test(\"messageOccurrenceCount is a non-negative integer\", function () {",
+							"    const responseData = pm.response.json();",
+							"    ",
+							"    responseData.logDetails.forEach(function(logDetail) {",
+							"        pm.expect(logDetail.messageOccurrenceCount).to.be.a('number');",
+							"        pm.expect(logDetail.messageOccurrenceCount).to.be.at.least(0);",
+							"    });",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/logAnalyser/findLogs/DEBUG"
+			},
+			"response": []
+		},
+		{
+			"name": "analyseInvalidLogs",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"",
+							"pm.test(\"Response status code is 400\", function () {",
+							"  pm.expect(pm.response.code).to.equal(400);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Response has the required fields - errorDetails and additionalInformation\", function () {",
+							"    const responseData = pm.response.json();",
+							"    ",
+							"    pm.expect(responseData).to.be.an('object');",
+							"    pm.expect(responseData.errorDetails).to.exist;",
+							"    pm.expect(responseData.additionalInformation).to.exist;",
+							"});",
+							"",
+							"",
+							"pm.test(\"Error details field is not empty\", function () {",
+							"    const responseData = pm.response.json();",
+							"    ",
+							"    pm.expect(responseData.errorDetails).to.exist.and.to.not.be.empty;",
+							"});",
+							"",
+							"",
+							"pm.test(\"Additional information field is not empty\", function () {",
+							"  const responseData = pm.response.json();",
+							"  ",
+							"  pm.expect(responseData.additionalInformation).to.exist.and.to.have.lengthOf.at.least(1, \"Value should not be empty\");",
+							"});",
+							"",
+							"",
+							"pm.test(\"Content-Type header is application/json\", function () {",
+							"  pm.expect(pm.response.headers.get(\"Content-Type\")).to.equal(\"application/json\");",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": "http://localhost:8080/api/logAnalyser/findLogs/ACCESS"
+			},
+			"response": []
+		},
+		{
+			"name": "analyseDebugLogsWithTopN",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"pm.test(\"Response status code is 200\", function () {",
+							"  pm.response.to.have.status(200);",
+							"});",
+							"",
+							"",
+							"pm.test(\"Content-Type header is 'application/json'\", function () {",
+							"    pm.expect(pm.response.headers.get(\"Content-Type\")).to.equal(\"application/json\");",
+							"});",
+							"",
+							"",
+							"pm.test(\"Validate the logDetails array\", function () {",
+							"    const responseData = pm.response.json();",
+							"    ",
+							"    pm.expect(responseData.logDetails).to.exist;",
+							"    pm.expect(responseData.logDetails).to.be.an('array');",
+							"});",
+							"",
+							"",
+							"pm.test(\"messageOccurrenceCount is a non-negative integer\", function () {",
+							"    const responseData = pm.response.json();",
+							"    ",
+							"    responseData.logDetails.forEach(function(logDetail) {",
+							"        pm.expect(logDetail.messageOccurrenceCount).to.be.a('number');",
+							"        pm.expect(logDetail.messageOccurrenceCount).to.be.at.least(0);",
+							"    });",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:8080/api/logAnalyser/top-errors/?logLevel=ERROR&topN=3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"api",
+						"logAnalyser",
+						"top-errors",
+						""
+					],
+					"query": [
+						{
+							"key": "logLevel",
+							"value": "ERROR"
+						},
+						{
+							"key": "topN",
+							"value": "3"
+						}
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}

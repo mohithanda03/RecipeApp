@@ -1,0 +1,30 @@
+2024-02-18 21:30:09,327 INFO o.h.v.i.u.Version [main] HV000001: Hibernate Validator 8.0.1.Final
+2024-02-18 21:30:10,331 INFO o.s.m.w.MockServletContext [main] Initializing Spring TestDispatcherServlet ''
+2024-02-18 21:30:10,332 INFO o.s.w.s.FrameworkServlet [main] Initializing Servlet ''
+2024-02-18 21:30:10,340 INFO o.s.w.s.FrameworkServlet [main] Completed initialization in 4 ms
+2024-02-18 21:30:10,623 INFO c.n.c.p.r.c.RecipeController [main] Searching for recipes by Ingredients
+2024-02-18 21:30:10,630 INFO c.n.c.p.r.c.RecipeController [main] Successfully retrieved recipes by Ingredients
+2024-02-18 21:30:10,752 INFO c.n.c.p.r.c.RecipeController [main] Searching for recipes by Ingredients
+2024-02-18 21:30:10,754 INFO c.n.c.p.r.c.RecipeController [main] Successfully retrieved recipes by Ingredients
+2024-02-18 21:30:10,793 INFO o.s.m.w.MockServletContext [main] Initializing Spring TestDispatcherServlet ''
+2024-02-18 21:30:10,794 INFO o.s.w.s.FrameworkServlet [main] Initializing Servlet ''
+2024-02-18 21:30:10,795 INFO o.s.w.s.FrameworkServlet [main] Completed initialization in 1 ms
+2024-02-18 21:30:10,798 INFO c.n.c.p.r.c.RecipeController [main] Fetching all the recipes
+2024-02-18 21:30:10,799 INFO c.n.c.p.r.c.RecipeController [main] Successfully retrieved all the recipes
+2024-02-18 21:30:11,032 INFO o.s.m.w.MockServletContext [main] Initializing Spring TestDispatcherServlet ''
+2024-02-18 21:30:11,033 INFO o.s.w.s.FrameworkServlet [main] Initializing Servlet ''
+2024-02-18 21:30:11,033 INFO o.s.w.s.FrameworkServlet [main] Completed initialization in 0 ms
+2024-02-18 21:30:11,043 INFO c.n.c.p.r.c.LogAnalyserController [main] Analysing the logs based on the input logLevel: DEBUG
+2024-02-18 21:30:11,053 INFO c.n.c.p.r.c.LogAnalyserController [main] Successfully analysed the logs
+2024-02-18 21:30:11,094 INFO o.s.m.w.MockServletContext [main] Initializing Spring TestDispatcherServlet ''
+2024-02-18 21:30:11,095 INFO o.s.w.s.FrameworkServlet [main] Initializing Servlet ''
+2024-02-18 21:30:11,095 INFO o.s.w.s.FrameworkServlet [main] Completed initialization in 0 ms
+2024-02-18 21:30:11,178 INFO c.n.c.p.r.u.LogUtils [main] Loaded the Log file successfully
+2024-02-18 21:30:11,180 ERROR c.n.c.p.r.s.LogAnalyserService [main] Exception occurred while extracting logs from the file. Exception Details: ${com.nl.cgi.recipe.api.log.file.path}
+2024-02-18 21:30:11,186 INFO c.n.c.p.r.u.LogUtils [main] Loaded the Log file successfully
+2024-02-18 21:30:11,187 ERROR c.n.c.p.r.s.LogAnalyserService [main] Exception occurred while extracting logs from the file. Exception Details: ${com.nl.cgi.recipe.api.log.file.path}
+2024-02-18 21:30:11,189 INFO c.n.c.p.r.u.LogUtils [main] Loaded the Log file successfully
+2024-02-18 21:30:11,191 ERROR c.n.c.p.r.s.LogAnalyserService [main] Exception occurred while extracting logs from the file. Exception Details: ${com.nl.cgi.recipe.api.log.file.path}
+2024-02-18 21:30:12,307 INFO c.n.c.p.r.u.RecipeUtils [main] Loaded the Recipe json file successfully
+2024-02-18 21:30:12,310 ERROR c.n.c.p.r.s.RecipeService [main] Recipe not found. Your input doesn't match any recipe
+2024-02-18 21:30:12,404 ERROR c.n.c.p.r.s.RecipeService [main] Error occurred while retrieving recipe details. Exception details: null
